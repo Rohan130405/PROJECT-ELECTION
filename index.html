@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colony Election Portal</title>
+</head>
+<body>
+    <h2 id="welcomeMessage"></h2>
+    <section id="vote">
+        <div class="container">
+            <h2>Vote for Your Candidate</h2>
+            <form action="indexservlet" method="post">
+                <input type="hidden" name="username" id="username">
+                <input type="hidden" name="password" id="password">
+                <div class="candidate">
+                    <p><strong>1. Ramesh</strong></p>
+                    <button type="submit" name="candidate" value="Ramesh">Vote</button>
+                </div>
+                <div class="candidate">
+                    <p><strong>2. Suresh</strong></p>
+                    <button type="submit" name="candidate" value="Suresh">Vote</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+        const password = urlParams.get('password');
+
+        // Display welcome message
+        document.getElementById('welcomeMessage').textContent = 'Welcome, ' + username + '!';
+
+        // Store username and password in hidden fields
+        document.getElementById('username').value = username;
+        document.getElementById('password').value = password;
+    </script>
+</body>
+</html>
